@@ -1,6 +1,8 @@
 package com.restaurante.controller
 
 import com.restaurante.model.PessoaModel
+import com.restaurante.controller.request.PessoaRequest
+import com.restaurante.extension.toModel
 import com.restaurante.service.PessoaService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -19,8 +21,8 @@ class PessoaController(
 
     @PostMapping
     @ResponseStatus(HttpStatus.CREATED)
-    fun create(@RequestBody pessoa: PessoaModel): PessoaModel {
-        return service.create(pessoa)
+    fun create(@RequestBody request: PessoaRequest): PessoaModel {
+        return service.create(request)
     }
 
     @PutMapping("/{p}")
