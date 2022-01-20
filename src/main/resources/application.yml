@@ -2,8 +2,13 @@ spring:
   jpa:
     hibernate:
       ddl-auto: update
-  datasource:
+  primary:
     driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/sigdata
+    url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=empresa
+    username: postgres
+    password: sousa
+  secondary:
+    driver-class-name: org.postgresql.Driver
+    url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=tabelas
     username: postgres
     password: sousa

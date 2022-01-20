@@ -1,8 +1,7 @@
 package com.restaurante.controller
 
-import com.restaurante.model.PessoaModel
+import com.restaurante.model.primary.PessoaModel
 import com.restaurante.controller.request.PessoaRequest
-import com.restaurante.extension.toModel
 import com.restaurante.service.PessoaService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
@@ -33,18 +32,18 @@ class PessoaController(
     }
 
     @GetMapping("/{id}")
-    fun getCustomer(@PathVariable id: Int): PessoaModel {
+    fun getCustomer(@PathVariable id: Long): PessoaRequest {
         return service.getPessoa(id)
     }
 
     @DeleteMapping("{id}")
     @ResponseStatus(HttpStatus.GONE)
-    fun excluir(@PathVariable id: Int) {
+    fun excluir(@PathVariable id: Long) {
         service.delete(id)
     }
 
     @GetMapping("/lista")
-    fun listar(@RequestParam nome: String?): List<PessoaModel> {
+    fun listar(@RequestParam nome: String?): List<PessoaRequest> {
         return service.getLista(nome)
     }
 
