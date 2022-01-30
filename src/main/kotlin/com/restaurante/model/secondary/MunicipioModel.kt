@@ -1,4 +1,4 @@
-package com.restaurante.model.primary
+package com.restaurante.model.secondary
 
 import javax.persistence.*
 

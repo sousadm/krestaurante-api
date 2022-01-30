@@ -7,6 +7,7 @@ import org.springframework.boot.context.properties.ConfigurationProperties
 import org.springframework.boot.orm.jpa.EntityManagerFactoryBuilder
 import org.springframework.context.annotation.Bean
 import org.springframework.context.annotation.Configuration
+import org.springframework.context.annotation.Primary
 import org.springframework.data.jpa.repository.config.EnableJpaRepositories
 import org.springframework.orm.jpa.JpaTransactionManager
 import org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean
@@ -15,7 +16,7 @@ import javax.sql.DataSource
 
 @Configuration
 @EnableJpaRepositories(
-    basePackages = arrayOf("com.restaurante.domain.repository.secondary"),
+    basePackages = arrayOf("com.restaurante.repository.secondary"),
     entityManagerFactoryRef = "secondaryEntityManager",
     transactionManagerRef = "secondaryTransactionManager")
 class SecondaryDataSourceConfiguration {
@@ -36,14 +37,14 @@ class SecondaryDataSourceConfiguration {
     @Autowired
     fun secondaryEntityManager(builder: EntityManagerFactoryBuilder, @Qualifier("secondaryDataSource") dataSource: DataSource): LocalContainerEntityManagerFactoryBean {
         return builder.dataSource(dataSource)
-            .packages("com.example.multipledatabasesdemo.domain.model.secondary")
+            .packages("com.restaurante.model.secondary")
             .persistenceUnit("secondary")
             .build()
     }
 
     @Bean
     @Autowired
-    fun secondaryTransactionManager(@Qualifier("secondaryEntityManager") secondaryEntityManager: EntityManagerFactory): JpaTransactionManager {
-        return JpaTransactionManager(secondaryEntityManager)
+    fun secondaryTransactionManager(@Qualifier("secondaryEntityManager") primaryEntityManager: EntityManagerFactory): JpaTransactionManager {
+        return JpaTransactionManager(primaryEntityManager)
     }
 }

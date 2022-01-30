@@ -1,4 +1,4 @@
-package com.restaurante.repository
+package com.restaurante.repository.primary
 
 import com.restaurante.controller.request.PessoaRequest
 import com.restaurante.model.primary.PessoaModel

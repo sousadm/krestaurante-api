@@ -16,7 +16,7 @@ import javax.sql.DataSource
 
 @Configuration
 @EnableJpaRepositories(
-    basePackages = arrayOf("com.example.multipledatabasesdemo.domain.repository.primary"),
+    basePackages = arrayOf("com.restaurante.repository.primary"),
     entityManagerFactoryRef = "primaryEntityManager",
     transactionManagerRef = "primaryTransactionManager")
 class PrimaryDataSourceConfiguration {
@@ -40,7 +40,7 @@ class PrimaryDataSourceConfiguration {
     @Autowired
     fun primaryEntityManager(builder: EntityManagerFactoryBuilder, @Qualifier("primaryDataSource") dataSource: DataSource): LocalContainerEntityManagerFactoryBean {
         return builder.dataSource(dataSource)
-            .packages("com.example.multipledatabasesdemo.domain.model.primary")
+            .packages("com.restaurante.model.primary")
             .persistenceUnit("primary")
             .build()
     }

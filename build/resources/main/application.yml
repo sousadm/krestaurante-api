@@ -1,17 +1,15 @@
 spring:
+  datasource:
+    primary:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=brazinha
+      username: postgres
+      password: sousa
+    secondary:
+      driver-class-name: org.postgresql.Driver
+      url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=tabelas
+      username: postgres
+      password: sousa
   jpa:
     hibernate:
       ddl-auto: update
-  datasourcePrincipal:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=empresa
-    username: postgres
-    password: sousa
-  datasourceTabelas:
-    driver-class-name: org.postgresql.Driver
-    url: jdbc:postgresql://localhost:5432/sigpro?currentSchema=tabelas
-    username: postgres
-    password: sousa
-    #url: jdbc:postgresql://ec2-18-234-17-166.compute-1.amazonaws.com:5432/d5d8n9qji99di6
-    #username: jarhimkkkfjljq
-    #password: 48da59647e8fed24e4bb244b99fc4cad914c318367d00ac9d1adae41d3b47612

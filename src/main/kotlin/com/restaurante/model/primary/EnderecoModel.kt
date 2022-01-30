@@ -1,5 +1,6 @@
 package com.restaurante.model.primary
 
+import com.restaurante.model.secondary.MunicipioModel
 import javax.persistence.*
 
 @Entity(name = "endereco")
@@ -21,8 +22,8 @@ data class EnderecoModel(
     @Column(nullable = true, length = 8)
     var cep: String,
 
-    @OneToOne
-    var municipio: MunicipioModel,
+//    @ManyToOne
+//    var municipio: MunicipioModel,
 
     @ManyToOne
     var pessoa: PessoaModel

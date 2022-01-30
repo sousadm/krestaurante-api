@@ -1,10 +1,10 @@
-package com.restaurante.service
+package com.restaurante.service.primary
 
 import com.restaurante.controller.request.PessoaRequest
 import com.restaurante.extension.toModel
 import com.restaurante.extension.toResponse
 import com.restaurante.model.primary.PessoaModel
-import com.restaurante.repository.PessoaRepository
+import com.restaurante.repository.primary.PessoaRepository
 import org.springframework.stereotype.Service
 
 @Service

@@ -2,7 +2,7 @@ package com.restaurante.controller
 
 import com.restaurante.model.primary.PessoaModel
 import com.restaurante.controller.request.PessoaRequest
-import com.restaurante.service.PessoaService
+import com.restaurante.service.primary.PessoaService
 import org.springframework.http.HttpStatus
 import org.springframework.web.bind.annotation.*
 
